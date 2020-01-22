@@ -13,7 +13,7 @@ class NvPost extends Component {
     render () {
         return (
             <div className="NvPost form-group">
-                <h1>Ajouter un Article</h1>
+                <h1>Ajouter un Post</h1>
                 <label>Titre</label>
                 <input className="form-control" type="text" value={this.state.title} onChange={(event) => this.setState({title: event.target.value})} />
                 <label>Contenu</label>
