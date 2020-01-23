@@ -9,7 +9,8 @@ class Blog extends Component {
 
     state = {
         posts: [],
-        selectPostId: null
+        selectPostId: null,
+        toggle: false
     }
     
     componentDidMount() {
@@ -30,7 +31,12 @@ class Blog extends Component {
     
     selectId = id => {
         console.log(id);
-        this.setState({selectPostId: id})
+        this.setState({selectPostId: id});
+        this.setState({toggle: true})
+    }
+
+    toggleModale = () => {
+        this.setState({toggle: false})
     }
     
     render () {
@@ -50,7 +56,11 @@ class Blog extends Component {
                 <NvPost />
                 </section>
                 <h2 className="text-center my-5">Choisissez un post ...</h2>
-                <PostModale id={this.state.selectPostId} />
+                <PostModale 
+                id={this.state.selectPostId} 
+                cache={this.toggleModale}
+                toggle={this.state.toggle}
+                />
                 <section className="Posts">
                     {posts}
                 </section>
